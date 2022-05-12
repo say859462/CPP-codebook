@@ -41,7 +41,7 @@ Treap *merge(Treap *a, Treap *b){
   }
 }
 //x 欲分割Treap
-void splitByKey(Treap *x,int k,Treap* a,Treap* b){
+void splitByKey(Treap *x,int k,Treap* &a,Treap* &b){
     if(!x){ a=b=nullptr; }
     else if(x->val<=k){//自己本身以及左子樹均小於等於k
       a=x;
@@ -55,7 +55,7 @@ void splitByKey(Treap *x,int k,Treap* a,Treap* b){
     }
 }
 //希望左邊Treap大小為k個 右邊為n-k個
-void splitByKth(Treap *x,int k,Treap* a,Treap* b){
+void splitByKth(Treap *x,int k,Treap* &a,Treap* &b){
   if(!x){ a=b=nullptr;}
   else if(Size(x->l)+1<=k){ //若自己+左子樹<=k個
     a=x;
