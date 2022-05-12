@@ -1,4 +1,8 @@
-
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
 struct qu{
   int l,r,id;
 };
@@ -14,8 +18,8 @@ bool cmp(const qu &a,const qu &b){
 void add(int x){}
 void sub(int x){}
 vector<query> q;
-void add(int index){ ... }    
-void sub(int index){ ... }    
+void add(int index){ return ; }    
+void sub(int index){ return ; }    
 void solve(){
     sort(q.begin(),q.end());
     for(int i=0,l=-1,r=0;i<n;i++){
