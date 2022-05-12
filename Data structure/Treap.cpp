@@ -17,7 +17,7 @@ int Size(Treap *x){return x? x->sz:0;}
 void pull(Treap *x){x->sz= Size(x->l) +Size(x->r)+1; }//用於區間加值 內部程式碼依題目要求更改
 
 //記得在Treap結構裡加入變數tag
-void push(Treap* x){
+void push(Treap* x){//翻轉後中序輸出
     if(x->tag){                      //如果區間要翻轉
         swap(x->l,x->r);             //交換左右子樹
         if(x->l)    x->l->tag ^= 1;  //加tag到左子樹
