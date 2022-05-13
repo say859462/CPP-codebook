@@ -80,3 +80,12 @@ void erase(int val){              //移除所有值為val的元素
     splitByKey(l, val-1, l, mid); //小於val的丟到l,等於val的就會在mid裡
     root = merge(l,r);            //將除了val以外的值合併
 }
+void cut(int ql,int qr){//欲翻轉區間 ，split函式根據依照kth分割或者key分割而有所變動
+    push(root);
+    Treap *l,*mid,*r,*tmp;
+    split(root,ql-1,l,tmp);//l=[1~ql-1] tmp=[ql~n]
+    split(tmp,qr-ql+1,mid,r);// mid=[ql~qr] r=[qr+1~n]
+    mid->tag^=1;
+    root=merge(merge(l,mid),r);
+    return ;
+}
