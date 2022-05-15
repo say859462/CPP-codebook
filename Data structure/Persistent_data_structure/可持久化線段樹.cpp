@@ -6,7 +6,13 @@ struct node{
     ll val;
     node *l, *r;
 };
- 
+ /*偽指標 一直new node可能會MLE 故開一個node 陣列 每次要新建節點就給予該陣列的位址
+ node addr[MXN];
+int id=0;
+node *newNode(){
+  return &addr[id++];
+}
+*/
 vector<node *> version;    //用一個vector紀錄全部版本的根節點
  
 void build(node *now_version, l, r){
