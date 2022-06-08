@@ -1,4 +1,5 @@
-	#define FZ(x) memset(x, 0, sizeof(x))
+//kosaraju’s algorithm
+#define FZ(x) memset(x, 0, sizeof(x))
 #define PB push_back
 struct Scc{
   int n, nScc, vst[MXN], bln[MXN]; // 最後每個點所屬的連通分量存在bln陣列
