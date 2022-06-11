@@ -53,6 +53,9 @@ void hull(){
         stk.push_back(p[i]);
     }
     stk.pop_back();//考慮逆時針做完凸包後，最左端點被重複計算
+    top--;
+    stk.resize(top);
+    return ;
 }
 int farthestdis(){
     int rec=0;
