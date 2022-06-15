@@ -1,3 +1,5 @@
+#define PB push_back
+#define SZ(x) (int)x.size()
 struct MinCostMaxFlow{
 typedef int Tcost;
   static const int MAXV = 20010;
