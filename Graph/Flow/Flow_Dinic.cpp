@@ -1,3 +1,5 @@
+#define PB push_back
+#define SZ(x) (int)x.size()
 struct Dinic{
   struct Edge{ int v,f,re; };
   int n,s,t,level[MXN];
