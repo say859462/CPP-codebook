@@ -1,4 +1,6 @@
 //最大完美匹配
+#define PB push_back
+#define SZ(x) (int)x.size()
 struct KM{ // max weight, for min negate the weights
   int n, mx[MXN], my[MXN], pa[MXN];
   ll g[MXN][MXN], lx[MXN], ly[MXN], sy[MXN];
