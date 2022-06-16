@@ -1,14 +1,13 @@
 struct MinCostMaxFlow{
-typedef int Tcost;
   static const int MAXV = 20010;
   static const int INFf = 1000000;
-  static const Tcost INFc  = 1e9;
+  //int INFc  = 1e9;
   struct Edge{
     int v, cap;
-    Tcost w;
+    int w;
     int rev;
     Edge(){}
-    Edge(int t2, int t3, Tcost t4, int t5)
+    Edge(int t2, int t3, int t4, int t5)
     : v(t2), cap(t3), w(t4), rev(t5) {}
   };
   int V, s, t;
@@ -17,18 +16,18 @@ typedef int Tcost;
     V = n; s = _s; t = _t;
     for(int i = 0; i <= V; i++) g[i].clear();
   }
-  void addEdge(int a, int b, int cap, Tcost w){
+  void addEdge(int a, int b, int cap, int w){
     g[a].push_back(Edge(b, cap, w, (int)g[b].size()));
     g[b].push_back(Edge(a, 0, -w, (int)g[a].size()-1));
   }
-  Tcost d[MAXV];
+  int d[MAXV];
   int id[MAXV], mom[MAXV];
   bool inqu[MAXV];
   queue<int> q;
-  pair<int,Tcost> solve(){
-    int mxf = 0; Tcost mnc = 0;
+  pair<int,int> solve(){
+    int mxf = 0; int mnc = 0;
     while(1){
-      fill(d, d+1+V, INFc);
+      fill(d, d+1+V, 1e9);
       fill(inqu, inqu+1+V, 0);
       fill(mom, mom+1+V, -1);
       mom[s] = s;
@@ -58,5 +57,5 @@ typedef int Tcost;
       mxf += df;
       mnc += df*d[t];
     }
-    return {mxf,mnc};
+    return make_pair(mxf,mnc);
 } }flow;
