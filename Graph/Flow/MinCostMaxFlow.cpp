@@ -1,10 +1,8 @@
-#define PB push_back
-#define SZ(x) (int)x.size()
 struct MinCostMaxFlow{
 typedef int Tcost;
   static const int MAXV = 20010;
   static const int INFf = 1000000;
-  Tcost INFc  = 1e9;
+  static const Tcost INFc  = 1e9;
   struct Edge{
     int v, cap;
     Tcost w;
