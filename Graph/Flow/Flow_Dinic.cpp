@@ -71,4 +71,4 @@ struct Dinic
       res += DFS(s, 2147483647);
     return res;
   }
-}graph;
+}flow;
