@@ -6,7 +6,7 @@ int n,k;
 int ans=0;
 bool row[10]={0};
 void dfs(int cur,int total){
-    if(cur>n){
+    if(cur>n||total==k){
         if(total==k){
             ans++;
         }
@@ -21,7 +21,7 @@ void dfs(int cur,int total){
             }
         
     }
-    dfs(cur+1,total);
+    dfs(cur+1,total);//換下一列作為開始
     return;
 }
 int main(){
