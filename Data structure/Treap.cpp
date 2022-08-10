@@ -1,4 +1,5 @@
 #include <iostream>
+#define NO_TAG 0
 using namespace std;
 struct Treap{
     int val,pri,sz;     //key,priority,size
