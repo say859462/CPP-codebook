@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 struct Treap{
-    int key,pri,sz;     //key,priority,size
+    int val,pri,sz;     //key,priority,size
     int tag;//用於翻轉區間、單點詢問
     Treap *l, *r;       //左右子樹
     Treap(){}
-    Treap(_key){
-        key = _key;
+    Treap(int _key){
+        val = _key;
         pri = rand();   //隨機的數維持樹的平衡
         sz  = 1;
         l = r = nullptr;
