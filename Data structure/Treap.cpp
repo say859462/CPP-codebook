@@ -75,11 +75,11 @@ void insert(int val){             //新增一個值為val的元素
     splitByKey(root, val, l, r);  //找到新節點要放的位置
     root = merge(merge(l,x),r);   //合併到原本的treap裡
 }                                 
-void erase(int val){              //移除所有值為val的元素
+void erase(int key){
     Treap *l,*mid,*r;
-    splitByKey(root, val, l, r);  //把小於等於val的丟到l
-    splitByKey(l, val-1, l, mid); //小於val的丟到l,等於val的就會在mid裡
-    root = merge(l,r);            //將除了val以外的值合併
+    split(root,key,l,r);//<=key給l,>key給r
+    split(l,key-1,l,mid);//<key給l ==key給mid(l只儲存<=key的值)
+    root=merge(l,r);
 }
 void cut(int ql,int qr){//欲翻轉區間 ，split函式根據依照kth分割或者key分割而有所變動
     push(root);
