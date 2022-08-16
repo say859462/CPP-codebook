@@ -1,35 +1,26 @@
 #include <bits/stdc++.h>
-#define ll long long
 using namespace std;
-int main(){
-    cin.tie(0);ios::sync_with_stdio(0);
-    int t,n,h;
-    cin>>t;
-    vector<int>num;
-    while(t--){
-        cin>>n;
-        num.clear();
-        num.resize(n);
-        ll sum=0;
-        ll total=0;
-        bool flag=0;
-        for(int i=0;i<n;i++){
-            total+=i;
-            cin>>num[i];
-            sum+=num[i];
-            if(sum<total){
-                flag=1;
-                break;
-            }
-        }
-        if(flag){
-            cout<<"NO"<<'\n';
-        }
-        else{
-            cout<<"YES"<<'\n';
-        }
-        
-    }
 
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &i : a) cin >> i;
+    long long sum = 0, need = 0;
+    for (int i = 0; i < n; ++i) {
+        need += i;
+        sum += a[i];
+        if (sum < need) {
+            cout << "NO\n";
+            return;
+        }
+    }
+    cout << "YES\n";
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) solve();
     return 0;
 }
