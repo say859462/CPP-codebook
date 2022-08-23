@@ -64,11 +64,11 @@ using namespace std;
 #define dsort(a) sort(a.begin(), a.end(), greater<int>()) //降冪排序
 #define pb push_back
 
-map<int,int>pos;
+map<ll,ll>pos;
 int main()
 {
     IO_FAST;
-    int n,x;
+    ll n,x;
     cin>>n;
     for(int i=1;i<=n;i++){
         cin>>x;
@@ -76,7 +76,7 @@ int main()
     }
     int q;
     cin>>q;
-    int cnt1=0,cnt2=0;
+    ll cnt1=0,cnt2=0;
     while(q--){
         cin>>x;
         cnt1+=pos[x];
