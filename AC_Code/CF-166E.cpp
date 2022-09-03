@@ -92,7 +92,7 @@ int main()
     //  freopen("output.txt","w",stdout);  // 寫入 file.out 檔
     IO_FAST;
     cin>>n;
-    int dp[4][2]={0};//D=0 A=1 B=2 C=3
+    ll dp[4][2]={0};//D=0 A=1 B=2 C=3
     dp[1][1]=1,dp[2][1]=1,dp[3][1]=1;
     for(int i=2;i<=n;i++){
         int k=i&1;
