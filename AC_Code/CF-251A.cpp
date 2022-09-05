@@ -92,19 +92,13 @@ int main()
     //  freopen("output.txt","w",stdout);  // 寫入 file.out 檔
     IO_FAST;
     cin>>n>>d;
+    ll ans=0;
     vector<ll>rec(n);
-    for(int i=0;i<n;i++)
-        cin>>rec[i];
-
-    int r=2;
-    int ans=0;
-    for(int i=0;i<n-2;i++){
-        int tmp=r;
-        while(tmp<n && rec[tmp]-rec[i]<=d){
-            ans+=(tmp-i-1);
-            tmp++;
-        }
-        r++;
+    for(ll i=0;i<n;i++)cin>>rec[i];
+    for(ll i=0;i<n-2;i++){
+        ll pos=upper_bound(ALL(rec),rec[i]+d)-rec.begin();
+        ll len=pos-i-1;
+        ans+=(len*(len-1))/2;
     }
     cout<<ans<<endl;
     return 0;
