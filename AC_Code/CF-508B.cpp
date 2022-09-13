@@ -94,9 +94,10 @@ int main(){
     IO_FAST;
     string  s;
     cin>>s;
+    int len=SZ(s);
     bool flag=1;
     int pos=0;
-    for(int i=0;i<SZ(s);i++){
+    for(int i=0;i<len;i++){
         if( (s[i]-'0')%2==0 ){
             pos=i;
             flag=0;
@@ -107,19 +108,28 @@ int main(){
         cout<<-1<<endl;
         return 0;
     }
-    string ans=s;
-    char tmp=ans[pos];
-    ans[pos]=ans[SZ(ans)-1];
-    ans[SZ(ans)-1]=tmp;
-    for(int i=0;i<SZ(s)-1;i++){
-        if((s[i]-'0')%2==0){
-            string t=s;
-            char tt=t[i];
-            t[i]=t[SZ(t)-1];
-            t[SZ(t)-1]=tt;
-            if(t>ans)ans=t;
+
+    string t;
+    char tt;
+    bool ok=0;
+    for(int i=0;i<len-1;i++){
+        if((s[i]-'0')%2==0 && s[i]<s[len-1]){
+            tt=s[i];
+            s[i]=s[len-1];
+            s[len-1]=tt;
+            ok=1;
         }
     }
-    cout<<ans<<endl;
+    if(ok){
+        cout<<s<<endl;
+        return 0;
+    }
+    for(int i=len-2;i>=0;i--){
+        if((s[i]-'0')%2==0){
+            swap(s[i],s[len-1]);
+            break;
+        }
+    }
+    cout<<s<<endl;
     return 0;
 }
