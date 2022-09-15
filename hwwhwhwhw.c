@@ -6,15 +6,25 @@ void myprintf(const char *format, ...){
 	char ch;
 	va_start(args,format);
 	while(*format!='\0'){
+      
 	    if(*format=='%'){
 	        format++;
     	    if(*format=='d'){
     	        int i=va_arg(args,int);
-    	        printf("%d",i);
+    	        int len=0;
+              	char num[10]={0};
+              	int tmp=i;
+              while(tmp){
+              	num[len++]=(tmp%10+'0');
+                tmp/=10;
+              }
+              	for(int i=len-1;i>=0;i--){
+                	putchar(num[i]);
+                }
     	    }
     	    if(*format=='c'){
     	        int c=va_arg(args,int);
-    	        printf("%c",c);
+    	        putchar(c);
     	    }
     	    if(*format=='s'){
     	        char *s=va_arg(args,char *);
@@ -23,7 +33,9 @@ void myprintf(const char *format, ...){
     	        }
     	    }
 	    }
+      
 	    else putchar(*format);
+      
 	    format++;
 	}
   return ;
