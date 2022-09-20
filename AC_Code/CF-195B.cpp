@@ -99,42 +99,26 @@ int main(){
     rec.PB(mid);
     int l=mid-1,r=mid+1;
     bool f=0;
-    if(m%2){
-        for(int i=0;i<m;i++){
-            if(!f){
-                if(l>=1){
-                    rec.PB(l);
-                    l--;
-                }
-                f=1;
+    if(m%2==0)f=1;
+
+    for(int i=0;i<m;i++){
+        if(!f){
+            if(l>=1){
+                rec.PB(l);
+                l--;
             }
-            else{
-                if(r<=m){
-                    rec.PB(r);
-                    r++;
-                }
-                f=0;
+            f=1;
+        }
+        else{
+            if(r<=m){
+                rec.PB(r);
+                r++;
             }
+            f=0;
         }
     }
-    else{
-        for(int i=0;i<m;i++){
-            if(f){
-                if(l>=1){
-                    rec.PB(l);
-                    l--;
-                }
-                f=0;
-            }
-            else{
-                if(r<=m){
-                    rec.PB(r);
-                    r++;
-                }
-                f=1;
-            }
-        }
-    }
+    
+    
     for(int i=0;i<n;i++){
         cout<<rec[i%SZ(rec)]<<endl;
     }
