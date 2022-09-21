@@ -160,12 +160,12 @@ int main(){
             }
         }
     }
-    int remain=0;
-    for(int i=0;i<=9;i++){
-        remain+=cnt[i];
+    bool flag=1;
+    for(int i=1;i<=9;i++){
+        if(cnt[i])flag=0;
     }
-    if(!remain){
-        cout<<-1<<endl;
+    if(flag){
+        cout<<0<<endl;
         return 0;
     }
     for(int i=9;i>=0;i--){
