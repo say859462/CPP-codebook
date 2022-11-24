@@ -10,13 +10,12 @@ void build(const string& s){
     }
 }
 bool check(int l,int r){
-  ll rec=Hash[r]-Hash[l-1]*p[r-l+1]%mod;
+  ll rec=Hash[r]-Hash[l-1]*_p[r-l+1]%mod;
   if(rec<0)rec+=mod;
   return rec;
 }
 int main(){
   _p[0]=1;
-  
   for(int i=1;i<MXN;i++){
     _p[i]=_p[i-1]*p%mod;
   }
