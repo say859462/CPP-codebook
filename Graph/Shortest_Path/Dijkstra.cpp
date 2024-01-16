@@ -33,6 +33,9 @@ void dijkstra()
 		}
 	}
 }
+
+void dijkstra()
+{
 //優化版
 init();
 priority_queue<pair<ll,int>,vector<pair<ll,int>>,greater<pair<ll,int>>> pq;
@@ -50,4 +53,5 @@ while(!pq.empty()){
             pq.push(make_pair(dis[v], v)); // 如果有更新距離，則丟進 priority_queue
         }
     }
+}
 }
