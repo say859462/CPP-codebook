@@ -59,6 +59,7 @@ int main()
     // freopen("output.txt","w",stdout);  // 寫入 file.out 檔
     IO_FAST;
     int t = 1;
+    // cin >> t;
     for (int i = 1; i <= t; i++)
     {
         solve();
