@@ -56,9 +56,10 @@ void print(pair<T, V> p)
     cout << ",";
     print(p.ss);
     cout << "}";
+    cout << '\n';
 }
 template <class T>
-void print(vector<T> v, bool flag = true)
+void print(vector<T> v, bool flag = true) // flag =true ascending order,otherwise descending
 {
     if (flag)
         for (T i : v)
@@ -72,6 +73,7 @@ void print(vector<T> v, bool flag = true)
             print(v[i]);
             cout << " ";
         }
+    cout << '\n';
 }
 template <class T>
 void print(set<T> v)
@@ -81,6 +83,17 @@ void print(set<T> v)
         print(i);
         cout << " ";
     }
+    cout << '\n';
+}
+template <class T, class V>
+void print(set<T, V> v)
+{
+    for (T i : v)
+    {
+        print(i);
+        cout << " ";
+    }
+    cout << '\n';
 }
 template <class T>
 void print(multiset<T> v)
@@ -90,6 +103,7 @@ void print(multiset<T> v)
         print(i);
         cout << " ";
     }
+    cout << '\n';
 }
 template <class T, class V>
 void print(map<T, V> v)
@@ -99,6 +113,7 @@ void print(map<T, V> v)
         print(i);
         cout << " ";
     }
+    cout << '\n';
 }
 
 // Operator overloads
@@ -126,27 +141,37 @@ ostream &operator<<(ostream &ostream, const vector<T> &c)
         cout << it << " ";
     return ostream;
 }
-
-// red-black tree
-//  tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> t;
+template <typename T>
+using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 /*
-插入t.insert();
-删除t.erase();
-求k在树中是第几大:t.order_of_key();
-求树中的第k大:t.find_by_order();
-前驱:t.lower_bound();
-后继t.upper_bound();
-a.join(b)b并入a 前提是两棵树的key的取值范围不相交
-a.split(v,b)key小于等于v的元素属于a，其余的属于b
-T.lower_bound(x)   >=x的min的迭代器
-T.upper_bound((x)  >x的min的迭代器
-T.find_by_order(k) 有k个数比它小的数
+    插入t.insert();
+    删除t.erase();
+    求k在树中是第几大:t.order_of_key();
+    求树中的第k大:t.find_by_order();
+    前驱:t.lower_bound();
+    后继t.upper_bound();
+    a.join(b)b并入a 前提是两棵树的key的取值范围不相交
+    a.split(v,b)key小于等于v的元素属于a，其余的属于b
+    T.lower_bound   (x)   >=x的min的迭代器
+    T.upper_bound((x)  >x的min的迭代器
+    T.find_by_order(k) 有k个数比它小的数
 */
 const int mod = 1e9 + 9;
-const int MXN = 3e5 + 5;
+const int MXN = 2e5 + 5;
 int n, m, x, y;
+// comparator
+// struct cmp
+// {
+//     bool operator()(pii const &a, pii const &b) const
+//     {
+//         return a.first == b.first ? a.second < b.second : a.first > b.first;
+//     }
+// };
+
+
 void solve()
 {
+
     return;
 }
 int main()
