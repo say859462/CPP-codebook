@@ -40,107 +40,7 @@ using namespace __gnu_pbds;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
-void print(ll t) { cout << t; }
-void print(int t) { cout << t; }
-void print(string t) { cout << t; }
-void print(char t) { cout << t; }
-void print(ld t) { cout << t; }
-void print(double t) { cout << t; }
-void print(ull t) { cout << t; }
 
-template <class T, class V>
-void print(pair<T, V> p)
-{
-    cout << "{";
-    print(p.ff);
-    cout << ",";
-    print(p.ss);
-    cout << "}";
-    cout << '\n';
-}
-template <class T>
-void print(vector<T> v, bool flag = true) // flag =true ascending order,otherwise descending
-{
-    if (flag)
-        for (T i : v)
-        {
-            print(i);
-            cout << " ";
-        }
-    else
-        for (int i = sz(v) - 1; i >= 0; i--)
-        {
-            print(v[i]);
-            cout << " ";
-        }
-    cout << '\n';
-}
-template <class T>
-void print(set<T> v)
-{
-    for (T i : v)
-    {
-        print(i);
-        cout << " ";
-    }
-    cout << '\n';
-}
-template <class T, class V>
-void print(set<T, V> v)
-{
-    for (T i : v)
-    {
-        print(i);
-        cout << " ";
-    }
-    cout << '\n';
-}
-template <class T>
-void print(multiset<T> v)
-{
-    for (T i : v)
-    {
-        print(i);
-        cout << " ";
-    }
-    cout << '\n';
-}
-template <class T, class V>
-void print(map<T, V> v)
-{
-    for (auto i : v)
-    {
-        print(i);
-        cout << " ";
-    }
-    cout << '\n';
-}
-
-// Operator overloads
-template <typename T1, typename T2> // cin >> pair<T1, T2>
-istream &operator>>(istream &istream, pair<T1, T2> &p)
-{
-    return (istream >> p.first >> p.second);
-}
-template <typename T> // cin >> vector<T>
-istream &operator>>(istream &istream, vector<T> &v)
-{
-    for (auto &it : v)
-        cin >> it;
-    return istream;
-}
-template <typename T1, typename T2> // cout << pair<T1, T2>
-ostream &operator<<(ostream &ostream, const pair<T1, T2> &p)
-{
-    return (ostream << p.first << " " << p.second << '\n');
-}
-template <typename T> // cout << vector<T>
-ostream &operator<<(ostream &ostream, const vector<T> &c)
-{
-    for (auto &it : c)
-        cout << it << " ";
-    return ostream;
-}
 template <typename T>
 using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 /*
@@ -167,7 +67,6 @@ int n, m, x, y;
 //         return a.first == b.first ? a.second < b.second : a.first > b.first;
 //     }
 // };
-
 
 void solve()
 {
