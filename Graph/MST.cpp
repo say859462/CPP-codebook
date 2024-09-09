@@ -1,5 +1,6 @@
 class Solution
-{
+{	
+// Kruskal's Alg
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
 	const int MXN = 1005;
