@@ -70,3 +70,65 @@ class Solution
     }
     
 };
+
+
+class Solution
+{   
+    
+    //Prim's Alg O()
+    #define pii pair<int,int>
+	public:
+	const int INF = 0x3f3f3f3f;
+	bool vis[1005] = {0}; // vis[i] : true:node i is already in MST ,I/O
+	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int spanningTree(int V, vector<vector<int>> adj[])
+    {
+        // code here
+        int ans = 0;
+        
+
+        
+        //use priority_queue to maintain the shortest distance from node to MST
+        priority_queue< pii,vector<pii>,greater<pii> > pq;
+        
+        pq.push(make_pair(0,0));
+        
+        int times = V;
+        
+        // O(VlogV) + O(ElogE)
+        while(times){
+            
+            //select the minimum distance from that node to MST
+            pair<int,int> top = pq.top();        
+            pq.pop();
+            int u = top.second;
+            int w = top.first;
+            
+            // pass that node which is already visited
+            if(vis[u])
+                continue;
+            
+            vis[u] = true;
+            ans+=w;
+            
+            for(auto j:adj[u]){
+                
+                int v = j[0];
+                int w2 = j[1];
+                
+                if(vis[v])
+                    continue;
+                
+                pq.push(make_pair(w2,v));
+                
+                
+            }
+            
+            
+            times--;
+        }
+        
+        return ans;
+        
+    }
+};
