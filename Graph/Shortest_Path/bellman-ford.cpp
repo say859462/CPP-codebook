@@ -24,3 +24,59 @@ while(!que.empty()){
         }
     }
 }
+class Solution {
+    
+  public:
+    const int INF = 1e8;
+    int dis[505] = {0};
+    int cost[505][505];
+    vector<int> bellman_ford(int V, vector<vector<int>>& edges, int S) {
+        
+        // 初始化圖的邊與權重
+        vector<int> e[505];
+        for (int i = 0; i < edges.size(); i++) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int w = edges[i][2];
+            cost[u][v] = w;
+            e[u].push_back(v);
+        }
+
+        // 初始化所有頂點的距離
+        for (int i = 0; i < V; i++)
+            dis[i] = INF;
+        
+        dis[S] = 0; // 設定源點的距離為0
+        
+        // 進行 V-1 次 relax
+        for (int times = 0; times < V - 1; times++) {
+            bool next = false;
+            for (int i = 0; i < V; i++) {
+                for (int j : e[i]) {
+                    if (dis[i] + cost[i][j] < dis[j]) {
+                        dis[j] = dis[i] + cost[i][j];
+                        next = true; // 有發生更新
+                    }
+                }
+            }
+            if (!next) break; // 如果沒有發生更新，提早結束
+        }
+
+        // 檢測負權重循環
+        for (int i = 0; i < V; i++) {
+            for (int j : e[i]) {
+                if (dis[i] + cost[i][j] < dis[j]) {
+                    // 如果在第 V 次還可以放鬆，則存在負權重循環
+                    return { -1 };
+                }
+            }
+        }
+
+        // 將結果轉換為 vector 返回
+        vector<int> ans;
+        for (int i = 0; i < V; i++)
+            ans.push_back(dis[i]);
+        
+        return ans;
+    }
+};
