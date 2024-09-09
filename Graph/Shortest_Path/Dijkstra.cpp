@@ -55,3 +55,62 @@ while(!pq.empty()){
     }
 }
 }
+
+
+
+class Solution
+{   
+    #define pii pair<int,int>
+    //Dijstra's Alg
+	public:
+	const int INF = 0x3f3f3f3f;
+	int dis[1005] = {0} ; //shortest path from source node to i if dis[i]
+	bool vis[1005] = {0}; //if it is visited
+	//Function to find the shortest distance of all the vertices
+    //from the source vertex S.
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        // Code here
+        
+        for(int i=0;i<V;i++)
+            dis[i] = INF;
+        
+        dis[S] = 0;
+        priority_queue< pii,vector<pii>,greater<pii> > pq;
+        pq.push(make_pair(0,S));
+        
+        
+        while(!pq.empty()){//O(V)
+            
+            pair<int,int> top = pq.top(); //(logE)
+            pq.pop();
+            int w = top.first;
+            int v = top.second;
+            
+            if(vis[v])
+                continue;
+            
+            vis[v] = true;
+            
+            //relaxing the determined shortest path node
+            for(auto j : adj[v]){
+                int u = j[0];
+                int w = j[1];
+                
+                if(dis[v] + w < dis[u]){
+                    dis[u] = dis[v] + w;
+                }
+                
+                pq.push(make_pair(dis[u],u));
+            }
+            
+            
+        }
+        
+        vector<int>ans ; 
+        for(int i=0;i<V;i++)
+            ans.push_back(dis[i]);
+        
+        return ans;
+    }
+};
