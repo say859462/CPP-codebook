@@ -95,7 +95,7 @@ class Solution
         
         int times = V;
         
-        // O(VlogV) + O(ElogE)
+        // O(VlogV) + O(ElogV)
         while(times){
             
             //select the minimum distance from that node to MST
